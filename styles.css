@@ -1,0 +1,26 @@
+* {
+    font-family: 'Futura', sans-serif;
+    margin: 0;
+}
+
+.container {
+}
+
+section {
+  height: 75vh;
+  padding: 0 10%;
+  display: flex;
+  place-items: center;
+  background-color: #F2F2F2;
+}
+
+section:nth-child(1) {
+  background-color: #76F8B0;
+}
+
+section:nth-child(2) {
+}
+
+.box {
+  width: 100%;
+}
