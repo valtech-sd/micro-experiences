@@ -16,7 +16,7 @@ section {
   background-color: #F2F2F2;
 }
 
-section:nth-child(1) {
+section:nth-child(odd) {
   background-color: #76F8B0;
 }
 
