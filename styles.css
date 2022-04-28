@@ -8,11 +8,8 @@
     margin: 0;
 }
 
-.container {
-}
-
 section {
-  height: 75vh;
+  height: 80vh;
   padding: 0 10%;
   display: flex;
   place-items: center;
