@@ -33,12 +33,12 @@ section:nth-child(odd) {
   section {
     flex-direction: column;
     place-content: center;
-    text-align: center;;
+    text-align: center;
   }
 
   .img,
   .audio {
-    width: 100%
+    width: 100%;
   }
 
  .audio {
