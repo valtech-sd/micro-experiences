@@ -21,7 +21,7 @@ const Container = styled.div`
 `;
 
 const Section = styled(Row)`
-  padding: ${SIZES.xl};
+  padding: ${SIZES.xl} ${SIZES.xs};
   background-color: ${({ color }) => COLORS[color] || COLORS.white};
   height: ${({ color }) => (color === 'green' ? 'calc(100vh - 149.35px)' : 'auto')};
   align-content: center;
