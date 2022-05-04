@@ -6,6 +6,11 @@
 }
 
 @font-face {
+  font-family: 'Futura Light';
+  src: url('./assets/fonts/FuturaStd-Light.otf');
+}
+
+@font-face {
   font-family: 'Betterworks';
   src: url('./assets/fonts/Betterworks.otf');
 }
@@ -21,4 +26,8 @@
 
 .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-tail::after {
     background-color: #D3D2D1 !important;
+}
+
+.ant-steps-item-title {
+    /* font-size: 18px; */
 }

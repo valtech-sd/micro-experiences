@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Steps, Skeleton } from 'antd';
+import { Row, Col, Steps, Skeleton } from 'antd';
 import axios from 'axios';
 
 import './App.css';
@@ -19,9 +19,15 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-const Section = styled.section`
+const Section = styled(Row)`
   padding: ${SIZES.xl};
   background-color: ${({ color }) => COLORS[color] || COLORS.white};
+  height: ${({ color }) => (color === 'green' ? 'calc(100vh - 149.35px)' : 'auto')};
+  align-content: center;
+
+  @media (min-width: 992px) {
+    padding: 100px;
+  }
 `;
 
 const Header = styled.h1`
@@ -30,6 +36,15 @@ const Header = styled.h1`
   margin-bottom: 0;
   line-height: 50px;
   font-size: ${FONT_SIZES.xl};
+
+  @media (min-width: 992px) {
+    font-size: 70px;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 90px;
+    line-height: 90px;
+  }
 `;
 
 const BoldHeader = styled.h1`
@@ -38,6 +53,16 @@ const BoldHeader = styled.h1`
   margin-bottom: 0;
   line-height: 50px;
   font-size: ${FONT_SIZES.xl};
+
+
+  @media (min-width: 992px) {
+    font-size: 70px;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 90px;
+    line-height: 90px;
+  }
 `;
 
 const CursiveHeader = styled.h1`
@@ -47,19 +72,40 @@ const CursiveHeader = styled.h1`
   color: ${COLORS.white};
   margin-top: -${SIZES.lg};
   font-size: ${FONT_SIZES.xl};
+
+
+  @media (min-width: 992px) {
+    font-size: 70px;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 90px;
+    line-height: 90px;
+  }
 `;
 
 const Title = styled.p`
   letter-spacing: 1px;
   margin: 50px 0 ${SIZES.xl};
-  font-size: ${FONT_SIZES.md};
+  font-size: 24px;
+  font-family: ${({ light }) => (light ? 'Futura Light' : 'Futura Std')};
+
+  @media (min-width: 1200px) {
+    font-size: ${FONT_SIZES.xl};
+  }
 `;
 
 const Text = styled.p`
   letter-spacing: 1px;
   margin: ${SIZES.xl} 0;
+  font-family: ${({ light }) => (light ? 'Futura Light' : 'Futura Std')};
   font-size: ${({ textAlign }) => (textAlign ? FONT_SIZES.md : FONT_SIZES.sm)};
   text-align: ${({ textAlign }) => textAlign || 'left'};
+
+  @media (min-width: 1200px) {
+    margin-right: 200px;
+    font-size: ${({ textAlign }) => (textAlign ? FONT_SIZES.lg : FONT_SIZES.md)};
+  }
 `;
 
 const ImgContainer = styled.div`
@@ -102,67 +148,93 @@ function App() {
     <Container>
       <Navbar />
       <Section color="green">
-        <Header>Micro</Header>
-        <Header>Connected</Header>
-        <BoldHeader>Experiences</BoldHeader>
-        <CursiveHeader>Experiences</CursiveHeader>
-        <Title>It Starts with Experimentations</Title>
-        <Text>
-          We experiment around the connection of physical and digital worlds to create smart
-          connected experiences. Here, you’ll find some of the proof of concepts and working
-          experiments we are exploring.
-        </Text>
+        <Col xs={24} sm={12}>
+          <Header>Micro</Header>
+          <Header>Connected</Header>
+          <BoldHeader>Experiences</BoldHeader>
+          <CursiveHeader>Experiences</CursiveHeader>
+        </Col>
+        <Col xs={24} sm={12}>
+          <Title light>It Starts with Experimentations</Title>
+          <Text>
+            We experiment around the connection of physical and digital worlds to create smart
+            connected experiences. Here, you’ll find some of the proof of concepts and working
+            experiments we are exploring.
+          </Text>
+        </Col>
       </Section>
       <Section>
-        <Header>Generative</Header>
-        <Header>
-          Art with <strong>AI</strong>
-        </Header>
-        <Text>
-          DALL·E is a trained neural network that creates images from text captions for a wide range
-          of concepts expressible in natural language. We have built upon an open source version of
-          DALL-E to create unique art from a variety of text prompts throughout the day.
-        </Text>
-        <Text textAlign="center">How generative art works</Text>
-        <Steps progressDot current={3} direction="vertical">
-          {steps.map((step, index) => (
-            <Step key={index} title={step} />
-          ))}
-        </Steps>
-        <ImgContainer>
-          {loading ? (
-            <Skeleton.Image loading={loading} />
-          ) : (
-            <img src={generatedImage || Dalle} alt="Dalle" width="100%" />
-          )}
-        </ImgContainer>
+        <Col xs={24} sm={12}>
+          <Header>Generative</Header>
+          <Header>
+            Art with <strong>AI</strong>
+          </Header>
+          <Text>
+            DALL·E is a trained neural network that creates images from text captions for a wide
+            range of concepts expressible in natural language. We have built upon an open source
+            version of DALL-E to create unique art from a variety of text prompts throughout the
+            day.
+          </Text>
+          <Text light textAlign="center">
+            How generative art works
+          </Text>
+          <Text>
+            <Steps progressDot current={3} direction="vertical">
+              {steps.map((step, index) => (
+                <Step key={index} title={step} />
+              ))}
+            </Steps>
+          </Text>
+        </Col>
+        <Col xs={24} sm={12}>
+          <ImgContainer>
+            {loading ? (
+              <Skeleton.Image loading={loading} />
+            ) : (
+              <img src={generatedImage || Dalle} alt="Dalle" width="100%" />
+            )}
+          </ImgContainer>
+        </Col>
       </Section>
       <Section color="grey">
-        <Header>Body</Header>
-        <BoldHeader>Tracking</BoldHeader>
-        <Header>Interaction</Header>
-        <Text>
-          Camera tracking is a process which involves capturing motion in real time and manipulating
-          3D interactive elements. We can track the skeletal body and control data points by
-          recognizing movements through the camera's input sensors.
-        </Text>
-        <img src={Gif} alt="Vatelch Body Tracking Demo" width="100%" />
+        <Col xs={24} sm={12}>
+          <Header>Body</Header>
+          <BoldHeader>Tracking</BoldHeader>
+          <Header>Interaction</Header>
+          <Text>
+            Camera tracking is a process which involves capturing motion in real time and
+            manipulating 3D interactive elements. We can track the skeletal body and control data
+            points by recognizing movements through the camera's input sensors.
+          </Text>
+        </Col>
+        <Col xs={24} sm={12}>
+          <img src={Gif} alt="Vatelch Body Tracking Demo" width="100%" />
+        </Col>
       </Section>
       <Section>
-        <Header>Sound</Header>
-        <BoldHeader>Activated</BoldHeader>
-        <Header>Interaction</Header>
-        <Text>
-          This micro interaction uses ambient sound to control the visualization on the screen. The
-          shape of the Valtech logo changes based on decoding different pitch levels.
-        </Text>
-        <img src={voiceImages[random]} alt="Valtech Voice Demo" width="100%" />
+        <Col xs={24} sm={12}>
+          <Header>Sound</Header>
+          <BoldHeader>Activated</BoldHeader>
+          <Header>Interaction</Header>
+          <Text>
+            This micro interaction uses ambient sound to control the visualization on the screen.
+            The shape of the Valtech logo changes based on decoding different pitch levels.
+          </Text>
+        </Col>
+        <Col xs={24} sm={12}>
+          <img src={voiceImages[random]} alt="Valtech Voice Demo" width="100%" />
+        </Col>
       </Section>
       <Section color="grey">
-        <Header>3D</Header>
-        <BoldHeader>Drawings</BoldHeader>
-        <Header>Interaction</Header>
-        <Text>Text goes here</Text>
+        <Col xs={24} sm={12}>
+          <Header>3D</Header>
+          <BoldHeader>Drawings</BoldHeader>
+          <Header>Interaction</Header>
+          <Text>Text goes here</Text>
+        </Col>
+        <Col xs={24} sm={12}>
+          <Text>image goes here</Text>
+        </Col>
       </Section>
       <Footer />
     </Container>
