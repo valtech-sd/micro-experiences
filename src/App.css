@@ -1,0 +1,24 @@
+@import "~antd/dist/antd.css";
+
+@font-face {
+  font-family: 'Futura Std';
+  src: url('./assets/fonts/FuturaStdBook.otf');
+}
+
+@font-face {
+  font-family: 'Betterworks';
+  src: url('./assets/fonts/Betterworks.otf');
+}
+
+* {
+    font-family: 'Futura Std', sans-serif;
+    margin: 0;
+}
+
+.ant-steps-icon-dot {
+    background-color: #D3D2D1 !important;
+}
+
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-tail::after {
+    background-color: #D3D2D1 !important;
+}
