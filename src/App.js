@@ -30,6 +30,10 @@ const Section = styled(Row)`
   }
 `;
 
+const Column = styled(Col)`
+  place-self: center;
+`;
+
 const Header = styled.h1`
   font-weight: inherit;
   letter-spacing: 1px;
@@ -54,7 +58,6 @@ const BoldHeader = styled.h1`
   line-height: 50px;
   font-size: ${FONT_SIZES.xl};
 
-
   @media (min-width: 992px) {
     font-size: 70px;
   }
@@ -72,7 +75,6 @@ const CursiveHeader = styled.h1`
   color: ${COLORS.white};
   margin-top: -${SIZES.lg};
   font-size: ${FONT_SIZES.xl};
-
 
   @media (min-width: 992px) {
     font-size: 70px;
@@ -103,7 +105,6 @@ const Text = styled.p`
   text-align: ${({ textAlign }) => textAlign || 'left'};
 
   @media (min-width: 1200px) {
-    margin-right: 200px;
     font-size: ${({ textAlign }) => (textAlign ? FONT_SIZES.lg : FONT_SIZES.md)};
   }
 `;
@@ -147,24 +148,24 @@ function App() {
   return (
     <Container>
       <Navbar />
-      <Section color="green">
-        <Col xs={24} sm={12}>
+      <Section gutter={50} color="green">
+        <Column xs={24} sm={12}>
           <Header>Micro</Header>
           <Header>Connected</Header>
           <BoldHeader>Experiences</BoldHeader>
           <CursiveHeader>Experiences</CursiveHeader>
-        </Col>
-        <Col xs={24} sm={12}>
+        </Column>
+        <Column xs={24} sm={12}>
           <Title light>It Starts with Experimentations</Title>
           <Text>
             We experiment around the connection of physical and digital worlds to create smart
             connected experiences. Here, you’ll find some of the proof of concepts and working
             experiments we are exploring.
           </Text>
-        </Col>
+        </Column>
       </Section>
-      <Section>
-        <Col xs={24} sm={12}>
+      <Section gutter={50}>
+        <Column xs={24} sm={12}>
           <Header>Generative</Header>
           <Header>
             Art with <strong>AI</strong>
@@ -185,8 +186,8 @@ function App() {
               ))}
             </Steps>
           </Text>
-        </Col>
-        <Col xs={24} sm={12}>
+        </Column>
+        <Column xs={24} sm={12}>
           <ImgContainer>
             {loading ? (
               <Skeleton.Image loading={loading} />
@@ -194,10 +195,10 @@ function App() {
               <img src={generatedImage || Dalle} alt="Dalle" width="100%" />
             )}
           </ImgContainer>
-        </Col>
+        </Column>
       </Section>
-      <Section color="grey">
-        <Col xs={24} sm={12}>
+      <Section gutter={50} color="grey">
+        <Column xs={24} sm={12}>
           <Header>Body</Header>
           <BoldHeader>Tracking</BoldHeader>
           <Header>Interaction</Header>
@@ -206,13 +207,13 @@ function App() {
             manipulating 3D interactive elements. We can track the skeletal body and control data
             points by recognizing movements through the camera's input sensors.
           </Text>
-        </Col>
-        <Col xs={24} sm={12}>
+        </Column>
+        <Column xs={24} sm={12}>
           <img src={Gif} alt="Vatelch Body Tracking Demo" width="100%" />
-        </Col>
+        </Column>
       </Section>
-      <Section>
-        <Col xs={24} sm={12}>
+      <Section gutter={50}>
+        <Column xs={24} sm={12}>
           <Header>Sound</Header>
           <BoldHeader>Activated</BoldHeader>
           <Header>Interaction</Header>
@@ -220,21 +221,21 @@ function App() {
             This micro interaction uses ambient sound to control the visualization on the screen.
             The shape of the Valtech logo changes based on decoding different pitch levels.
           </Text>
-        </Col>
-        <Col xs={24} sm={12}>
+        </Column>
+        <Column xs={24} sm={12}>
           <img src={voiceImages[random]} alt="Valtech Voice Demo" width="100%" />
-        </Col>
+        </Column>
       </Section>
-      <Section color="grey">
-        <Col xs={24} sm={12}>
+      <Section gutter={50} color="grey">
+        <Column xs={24} sm={12}>
           <Header>3D</Header>
           <BoldHeader>Drawings</BoldHeader>
           <Header>Interaction</Header>
           <Text>Text goes here</Text>
-        </Col>
-        <Col xs={24} sm={12}>
+        </Column>
+        <Column xs={24} sm={12}>
           <Text>image goes here</Text>
-        </Col>
+        </Column>
       </Section>
       <Footer />
     </Container>
