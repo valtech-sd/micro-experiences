@@ -5,23 +5,30 @@ import Logo from '../../assets/FS_Logo_White.png';
 import { COLORS, SIZES, FONT_SIZES } from '../../utils/global';
 
 const Container = styled.div`
-  height: 25vh;
   background-color: black;
-  padding: ${SIZES.xxl} ${SIZES.xl} 0;
   display: flex;
   flex-direction: column;
+  padding: ${SIZES.xxl} ${SIZES.xl};
 `;
 
 const StyledButton = styled(Button)`
   width: 200px;
+  height: 50px;
+  color: black;
+  display: flex !important;
+  place-content: center;
+  place-items: center;
   margin-top: ${SIZES.lg};
   border: 1px solid ${COLORS.green} !important;
   background: ${COLORS.green} !important;
+
+  &:hover {
+    color: black;
+  }
 `;
 
 const Text = styled.p`
   color: white;
-  text-align: center;
   margin-top: ${SIZES.lg};
   font-size: ${FONT_SIZES.xs};
 `;

@@ -17,6 +17,7 @@ const { Step } = Steps;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  margin-right: 0;
 `;
 
 const Section = styled(Row)`
@@ -24,6 +25,9 @@ const Section = styled(Row)`
   background-color: ${({ color }) => COLORS[color] || COLORS.white};
   height: ${({ color }) => (color === 'green' ? 'calc(100vh - 149.35px)' : 'auto')};
   align-content: center;
+  width: 100%;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
 
   @media (min-width: 992px) {
     padding: 100px;
@@ -43,6 +47,7 @@ const Header = styled.h1`
 
   @media (min-width: 992px) {
     font-size: 70px;
+    line-height: 90px;
   }
 
   @media (min-width: 1200px) {
@@ -60,6 +65,7 @@ const BoldHeader = styled.h1`
 
   @media (min-width: 992px) {
     font-size: 70px;
+    line-height: 90px;
   }
 
   @media (min-width: 1200px) {
@@ -78,6 +84,7 @@ const CursiveHeader = styled.h1`
 
   @media (min-width: 992px) {
     font-size: 70px;
+    line-height: 90px;
   }
 
   @media (min-width: 1200px) {
