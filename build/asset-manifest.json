@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/micro-experiences/static/css/main.c89e3e78.css",
-    "main.js": "/micro-experiences/static/js/main.67491f20.js",
+    "main.js": "/micro-experiences/static/js/main.0b374724.js",
     "static/js/787.30e568f7.chunk.js": "/micro-experiences/static/js/787.30e568f7.chunk.js",
     "static/media/td-demo-1.gif": "/micro-experiences/static/media/td-demo-1.6873fe4a10dcbfa830f7.gif",
     "static/media/voice-2.png": "/micro-experiences/static/media/voice-2.e074d1b8b9fe53a424cc.png",
@@ -15,11 +15,11 @@
     "static/media/FuturaStdBook.otf": "/micro-experiences/static/media/FuturaStdBook.5f83b0049a36e35d2265.otf",
     "index.html": "/micro-experiences/index.html",
     "main.c89e3e78.css.map": "/micro-experiences/static/css/main.c89e3e78.css.map",
-    "main.67491f20.js.map": "/micro-experiences/static/js/main.67491f20.js.map",
+    "main.0b374724.js.map": "/micro-experiences/static/js/main.0b374724.js.map",
     "787.30e568f7.chunk.js.map": "/micro-experiences/static/js/787.30e568f7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c89e3e78.css",
-    "static/js/main.67491f20.js"
+    "static/js/main.0b374724.js"
   ]
 }

@@ -39,48 +39,16 @@ const Column = styled(Col)`
 `;
 
 const Header = styled.h1`
-  font-weight: inherit;
   letter-spacing: 1px;
   margin-bottom: 0;
   line-height: 50px;
   font-size: ${FONT_SIZES.xl};
 
-  @media (min-width: 992px) {
-    font-size: 70px;
-    line-height: 90px;
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 90px;
-    line-height: 90px;
-  }
-`;
-
-const BoldHeader = styled.h1`
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 0;
-  line-height: 50px;
-  font-size: ${FONT_SIZES.xl};
-
-  @media (min-width: 992px) {
-    font-size: 70px;
-    line-height: 90px;
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 90px;
-    line-height: 90px;
-  }
-`;
-
-const CursiveHeader = styled.h1`
-  letter-spacing: 1px;
-  transform: matrix(0.98, -0.19, 0.2, 0.98, 0, 0);
-  font-family: 'Betterworks';
-  color: ${COLORS.white};
-  margin-top: -${SIZES.lg};
-  font-size: ${FONT_SIZES.xl};
+  font-weight: ${({ bold }) => (bold ? 'bold' : 'inherit')};
+  transform: ${({ cursive }) => (cursive ? 'matrix(0.98, -0.19, 0.2, 0.98, 0, 0)' : 'none')};
+  font-family: ${({ cursive }) => (cursive ? 'Betterworks' : 'inherit')};
+  color: ${({ cursive }) => (cursive ? 'white' : 'black')};
+  margin-top: ${({ cursive }) => (cursive ? `-${SIZES.lg}` : 0)};
 
   @media (min-width: 992px) {
     font-size: 70px;
@@ -159,8 +127,8 @@ function App() {
         <Column xs={24} sm={12}>
           <Header>Micro</Header>
           <Header>Connected</Header>
-          <BoldHeader>Experiences</BoldHeader>
-          <CursiveHeader>Experiences</CursiveHeader>
+          <Header bold>Experiences</Header>
+          <Header cursive>Experiences</Header>
         </Column>
         <Column xs={24} sm={12}>
           <Title light>It Starts with Experimentations</Title>
@@ -207,7 +175,7 @@ function App() {
       <Section gutter={50} color="grey">
         <Column xs={24} sm={12}>
           <Header>Body</Header>
-          <BoldHeader>Tracking</BoldHeader>
+          <Header bold>Tracking</Header>
           <Header>Interaction</Header>
           <Text>
             Camera tracking is a process which involves capturing motion in real time and
@@ -222,7 +190,7 @@ function App() {
       <Section gutter={50}>
         <Column xs={24} sm={12}>
           <Header>Sound</Header>
-          <BoldHeader>Activated</BoldHeader>
+          <Header bold>Activated</Header>
           <Header>Interaction</Header>
           <Text>
             This micro interaction uses ambient sound to control the visualization on the screen.
@@ -236,7 +204,7 @@ function App() {
       <Section gutter={50} color="grey">
         <Column xs={24} sm={12}>
           <Header>3D</Header>
-          <BoldHeader>Drawings</BoldHeader>
+          <Header bold>Drawings</Header>
           <Header>Interaction</Header>
           <Text>Text goes here</Text>
         </Column>
