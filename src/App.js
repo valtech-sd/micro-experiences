@@ -4,7 +4,6 @@ import { Row, Col, Steps, Skeleton } from 'antd';
 import axios from 'axios';
 
 import './App.css';
-import BG from './assets/bg.png';
 import Dalle from './assets/dalle.jpg';
 import VoiceLogo from './assets/voice.png';
 import VoiceLogo2 from './assets/voice-2.png';
@@ -90,6 +89,15 @@ const ImgContainer = styled.div`
   margin-top: ${SIZES.lg};
 `;
 
+const GenArtContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Caption = styled.caption`
+  text-align: center;
+`;
+
 const steps = [
   'Over time, the neural network is trained by enormous datasets of words and images',
   'Text prompt generated from APIs including movie characters, locations, and art styles',
@@ -97,7 +105,10 @@ const steps = [
 ];
 
 function App() {
-  const [generatedImage, setGeneratedImage] = useState(null);
+  const [generatedImage, setGeneratedImage] = useState({
+    src: Dalle,
+    alt: 'a cartoon of Mario sitting in a fire at dawn',
+  });
   const [loading, setLoading] = useState(true);
 
   const voiceImages = [VoiceLogo, VoiceLogo2];
@@ -106,14 +117,18 @@ function App() {
   useEffect(() => {
     const getImage = async () => {
       try {
-        const data = await axios.get('https://dalle-mini-ui-seven.vercel.app/api/latest-image');
-        console.log({ data });
+        const {
+          data: { imageData },
+        } = await axios.get('https://dalle-mini-ui-seven.vercel.app/api/latest-image');
+
+        setGeneratedImage({
+          src: imageData.src,
+          alt: imageData.alt,
+        });
       } catch (err) {
         console.error(err);
       } finally {
-        setTimeout(() => {
-          setLoading(false);
-        }, 1000);
+        setLoading(false);
       }
     };
 
@@ -167,7 +182,10 @@ function App() {
             {loading ? (
               <Skeleton.Image loading={loading} />
             ) : (
-              <img src={generatedImage || Dalle} alt="Dalle" width="100%" />
+              <GenArtContainer>
+                <img src={generatedImage.src} alt="Dalle Generated Art" width="100%" />
+                {generatedImage.alt && <Caption>{generatedImage.alt}</Caption>}
+              </GenArtContainer>
             )}
           </ImgContainer>
         </Column>
