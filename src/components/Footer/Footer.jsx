@@ -31,16 +31,35 @@ const Text = styled.p`
   color: white;
   margin-top: ${SIZES.lg};
   font-size: ${FONT_SIZES.xs};
+
+  @media (min-width: 576px) {
+    margin: 0;
+  }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: ${SIZES.lg};
+
+  @media (min-width: 576px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
 `;
 
 const Footer = () => {
   return (
     <Container>
       <img src={Logo} alt="Valtech Future Studio" width="150" />
-      <StyledButton href="https://futurestudio.valtech.com" type="primary">
-        Contact Us
-      </StyledButton>
-      <Text>© 2022 VALTECH FUTURE STUDIO. ALL RIGHTS RESERVED.</Text>
+      <Wrapper>
+        <StyledButton href="https://futurestudio.valtech.com" type="primary">
+          Contact Us
+        </StyledButton>
+        <Text>© 2022 VALTECH FUTURE STUDIO. ALL RIGHTS RESERVED.</Text>
+      </Wrapper>
     </Container>
   );
 };
