@@ -10,7 +10,7 @@
 ### `npm start`
 
 ## Steps to deploy
-- this will automatically deploy to gh-pages and update https://valtech-sd.github.io/micro-experiences
+- this will automatically deploy to gh-pages and update https://microexperiences.valtech.engineering
 
 ### `npm run deploy`
 
