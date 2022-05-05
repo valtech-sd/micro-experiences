@@ -11,6 +11,8 @@ import { Navbar, Footer } from './components';
 import { COLORS, SIZES, FONT_SIZES } from './utils/global';
 import './App.css';
 
+console.log('hello')
+
 const { Step } = Steps;
 
 const Container = styled.div`
