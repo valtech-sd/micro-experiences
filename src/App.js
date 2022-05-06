@@ -7,11 +7,12 @@ import Dalle from './assets/dalle.jpg';
 import VoiceLogo from './assets/voice.png';
 import VoiceLogo2 from './assets/voice-2.png';
 import Gif from './assets/td-demo-1.gif';
+import Drawing from './assets/3dDraw.png';
 import { Navbar, Footer } from './components';
 import { COLORS, SIZES, FONT_SIZES } from './utils/global';
 import './App.css';
 
-console.log('hello')
+console.log('hello');
 
 const { Step } = Steps;
 
@@ -226,10 +227,24 @@ function App() {
           <Header>3D</Header>
           <Header bold>Drawings</Header>
           <Header>Interaction</Header>
-          <Text>Text goes here</Text>
+          <Text>
+            This demo uses immersive 3D particle to transform body motion into an immersive
+            interactive experience.
+          </Text>
+          <Text>
+            The technology behind the demo has two main components: 1. an interactive 3D particle
+            environment powered by Unity3d software, and 2. a web-app which uses rotation data from
+            a mobile device to remotely interact with the interactive 3D display. The system also
+            utilizes a Firebase realtime database to transmit the data from the web app to the
+            interactive display.
+          </Text>
+          <Text>
+            The applications for the demo could be a game or experience for a museum, theme-park, or
+            in-store display.
+          </Text>
         </Column>
         <Column xs={24} sm={12}>
-          <Text>image goes here</Text>
+          <img src={Drawing} alt="3D Drawing Demo" width="100%" />
         </Column>
       </Section>
       <Footer />
