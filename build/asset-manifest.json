@@ -1,13 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.5f2a00c9.css",
-    "main.js": "/static/js/main.73aecc18.js",
+    "main.js": "/static/js/main.46823283.js",
     "static/js/787.30e568f7.chunk.js": "/static/js/787.30e568f7.chunk.js",
-    "static/media/td-demo-1.gif": "/static/media/td-demo-1.6873fe4a10dcbfa830f7.gif",
-    "static/media/3dDraw.png": "/static/media/3dDraw.b6b1f478714095879048.png",
-    "static/media/voice-2.png": "/static/media/voice-2.e074d1b8b9fe53a424cc.png",
+    "static/media/drawing.gif": "/static/media/drawing.ba2736ad921094e992e8.gif",
+    "static/media/hand.gif": "/static/media/hand.603975deebd3a2b35cb6.gif",
+    "static/media/sound.gif": "/static/media/sound.68ab945bbaf38fe25993.gif",
     "static/media/Betterworks.otf": "/static/media/Betterworks.2e0577c0ec068bd63cbf.otf",
-    "static/media/voice.png": "/static/media/voice.f36d252c4dd61893f995.png",
     "static/media/dalle.jpg": "/static/media/dalle.fe5bc0b13b32a78b6a98.jpg",
     "static/media/FS_Logo_White.png": "/static/media/FS_Logo_White.9da86248716664371539.png",
     "static/media/vfs_black.png": "/static/media/vfs_black.0c38a900f8d933b7d003.png",
@@ -15,11 +14,11 @@
     "static/media/FuturaStdBook.otf": "/static/media/FuturaStdBook.5f83b0049a36e35d2265.otf",
     "index.html": "/index.html",
     "main.5f2a00c9.css.map": "/static/css/main.5f2a00c9.css.map",
-    "main.73aecc18.js.map": "/static/js/main.73aecc18.js.map",
+    "main.46823283.js.map": "/static/js/main.46823283.js.map",
     "787.30e568f7.chunk.js.map": "/static/js/787.30e568f7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5f2a00c9.css",
-    "static/js/main.73aecc18.js"
+    "static/js/main.46823283.js"
   ]
 }

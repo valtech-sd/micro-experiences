@@ -4,15 +4,12 @@ import { Row, Col, Steps, Skeleton } from 'antd';
 import axios from 'axios';
 
 import Dalle from './assets/dalle.jpg';
-import VoiceLogo from './assets/voice.png';
-import VoiceLogo2 from './assets/voice-2.png';
-import Gif from './assets/td-demo-1.gif';
-import Drawing from './assets/3dDraw.png';
 import { Navbar, Footer } from './components';
 import { COLORS, SIZES, FONT_SIZES } from './utils/global';
+import Drawing from './assets/drawing.gif';
+import Sound from './assets/sound.gif';
+import Hand from './assets/hand.gif';
 import './App.css';
-
-console.log('hello');
 
 const { Step } = Steps;
 
@@ -51,6 +48,8 @@ const Header = styled.h1`
   font-family: ${({ cursive }) => (cursive ? 'Betterworks' : 'inherit')};
   color: ${({ cursive }) => (cursive ? 'white' : 'black')};
   margin-top: ${({ cursive }) => (cursive ? `-${SIZES.lg}` : 0)};
+  position: ${({ position }) => (position ? position : 'static')};
+  z-index: ${({ zIndex }) => (zIndex ? zIndex : 'auto')};
 
   @media (min-width: 992px) {
     font-size: 70px;
@@ -114,9 +113,6 @@ function App() {
   });
   const [loading, setLoading] = useState(true);
 
-  const voiceImages = [VoiceLogo, VoiceLogo2];
-  const random = Math.floor(Math.random() * voiceImages.length);
-
   useEffect(() => {
     const getImage = async () => {
       try {
@@ -145,8 +141,12 @@ function App() {
         <Column xs={24} sm={12}>
           <Header>Micro</Header>
           <Header>Connected</Header>
-          <Header bold>Experiences</Header>
-          <Header cursive>Experiences</Header>
+          <Header bold position="inherit" zIndex={1}>
+            Experiences
+          </Header>
+          <Header cursive position="inherit" zIndex={0}>
+            Experiences
+          </Header>
         </Column>
         <Column xs={24} sm={12}>
           <Title light>It Starts with Experimentations</Title>
@@ -205,7 +205,7 @@ function App() {
           </Text>
         </Column>
         <Column xs={24} sm={12}>
-          <img src={Gif} alt="Vatelch Body Tracking Demo" width="100%" />
+          <img src={Hand} alt="Vatelch Body Tracking Demo" width="100%" />
         </Column>
       </Section>
       <Section gutter={50}>
@@ -219,7 +219,7 @@ function App() {
           </Text>
         </Column>
         <Column xs={24} sm={12}>
-          <img src={voiceImages[random]} alt="Valtech Voice Demo" width="100%" />
+          <img src={Sound} alt="Valtech Voice Demo" width="100%" />
         </Column>
       </Section>
       <Section gutter={50} color="grey">
